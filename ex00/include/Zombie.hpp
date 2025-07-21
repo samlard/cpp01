@@ -17,12 +17,15 @@
 class Zombie
 {
     private:
-        std::string name;
+        std::string _name;
     public:
-        Zombie();
+        Zombie(std::string str);
         ~Zombie();
         void announce();
-        std::string get_name() const;
-};
+        const std::string &get_name() const;
+    };
+    
+    Zombie* newZombie(std::string name);
+    void randomChump(std::string name);
 
 #endif

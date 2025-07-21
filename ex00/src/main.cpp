@@ -14,7 +14,12 @@
 
 int main()
 {
-    Zombie zombie1;
+    Zombie zombie1("john");
+    Zombie *zombie2 = newZombie("bob");
     
-    
+    zombie1.announce();
+    zombie2->announce();
+    randomChump("alice");
+    delete(zombie2);
+    return (0);
 }
