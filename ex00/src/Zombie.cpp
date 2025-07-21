@@ -29,17 +29,6 @@ void Zombie::announce()
     std::cout << get_name() << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-Zombie *newZombie(std::string name)
-{
-    return new Zombie(name);
-}
-
-void randomChump(std::string name)
-{
-    Zombie zombie(name);
-    zombie.announce();
-}
-
 const std::string &Zombie::get_name() const
 {
     return this->_name;
