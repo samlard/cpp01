@@ -8,7 +8,7 @@ int main(void)
     // b = a;
     std::string str = "HI THIS BRAIN";
     std::string *ptr = &str;
-    std::string &ref = str;
+    std::string &ref = str; //une reference c'est comme un pointeur tjr dereference
 
     std::cout << "adress of str: " << &str << std::endl;
     std::cout << "adress of ptr" << &ptr << std::endl;
