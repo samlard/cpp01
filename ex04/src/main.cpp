@@ -16,29 +16,31 @@ int main(int argc, char **argv)
         std::cerr << "could not open infile: " << filename << std::endl;
         return 1;
     }
-    else
+    std::string new_file = filename;
+    new_file+= ".replace";
+    std::ofstream outfile (new_file.c_str(), std::ios::out);
+    if (!outfile)
     {
-        std::string new_file = filename;
-        new_file+= ".replace";
-        std::ofstream outfile (new_file.c_str(), std::ios::app);
-        if (!outfile)
-        {
-            std::cerr << "could not created outfile: " << new_file << std::endl;
-            return (1); 
-        }
+        std::cerr << "could not created outfile: " << new_file << std::endl;
+        return (1); 
     }
     std::string line;
+    std::string modified_line;
     size_t pos = 0;
     size_t start = 0;
     while (getline(infile, line))
     {
-        if (line.empty())
-            break;
-        while ((pos = line.find(s1, pos)) != std::string::npos)
+        while ((pos = line.find(s1, start)) != std::string::npos)
         {
-            
-
+            modified_line += line.substr(start, pos - start);
+            modified_line += s2;
+            start = pos + s1.length();
         }
+        modified_line += line.substr(start);
+        outfile << modified_line << std::endl;
+        modified_line.clear();
+        start = 0;
+        line.clear();
     }
     return 0;
 }
