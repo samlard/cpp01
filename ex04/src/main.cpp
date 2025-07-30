@@ -10,6 +10,11 @@ int main(int argc, char **argv)
     std::string filename = argv[1];
     std::string s1 = argv[2];
     std::string s2 = argv[3];
+    if (s1.empty())
+    {
+        std::cerr << "error :s1 is empty" << std::endl;
+        return 1;
+    }
     std::ifstream infile(filename.c_str());
     if (!infile)
     {
@@ -27,9 +32,9 @@ int main(int argc, char **argv)
     std::string line;
     std::string modified_line;
     size_t pos = 0;
-    size_t start = 0;
     while (getline(infile, line))
     {
+        size_t start = 0;
         while ((pos = line.find(s1, start)) != std::string::npos)
         {
             modified_line += line.substr(start, pos - start);

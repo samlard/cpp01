@@ -19,7 +19,7 @@ OBJ             =       $(SRC:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 INC_DIR =	include
 #---------------------------------------------------------#
 
-NAME    =	zombie
+NAME    =	harl
 
 all:            $(NAME)
 
